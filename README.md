@@ -1,2 +1,2 @@
-# spring-boot-kutebunetes
-POC for spring boot Kutebunetes Deployment
+# spring-boot-kubernetes
+POC for spring boot Kubernetes Deployment
