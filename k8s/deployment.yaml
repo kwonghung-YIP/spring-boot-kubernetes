@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-demo
+spec:
+  selector:
+      matchLabels:
+        app: springboot-demo-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: springboot-demo-app
+    spec:
+      containers:
+        - name: springboot-demo-app
+          image: kwonghung/spring-boot-kubernetes:latest
+          ports:
+            - containerPort: 8080
