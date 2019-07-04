@@ -1,0 +1,21 @@
+language: java
+
+services:
+  - docker
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+before_install:
+  - chmod +x gradlew
+  
+jdk:
+  - oraclejdk8
+
+script:
+  - docker build -t kwonghung/spring-boot-kubernetes .
+  - docker login --help
+  - echo "$DOCKER_HUB_PASSWD" | docker login --username "$DOCKER_HUB_LOGIN" --password-stdin
+  - docker push kwonghung/spring-boot-kubernetes
