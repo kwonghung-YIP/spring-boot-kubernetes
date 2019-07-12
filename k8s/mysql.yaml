@@ -12,3 +12,6 @@ spec:
     ports:
     - containerPort: 3306
       name: mysql
+  - name: mysql-client
+    image: mysql:8.0
+    command: ["/bin/bash"]
