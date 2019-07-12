@@ -1,4 +1,13 @@
 apiVersion: v1
+kind: Secret
+metadata: 
+  name: mysql-secret
+type: Opaque
+stringData:
+  mysql-user: testuser
+  mysql-passwd: passw0rd
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: mysql
@@ -7,12 +16,20 @@ spec:
   - name: mysql-server
     image: mysql:8.0
     env:
-    - name: MYSQL_ROOT_PASSWORD
-      value: password
+    - name: MYSQL_RANDOM_ROOT_PASSWORD
+      value: yes
+    - name: MYSQL_DATABASE
+      value: testdb
+    - name: MYSQL_USER
+      valueFrom:
+        secretKeyRef:
+          name: mysql-secret
+          key: mysql-user
+    - name: MYSQL_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mysql-secret
+          key: mysql-passwd
     ports:
     - containerPort: 3306
       name: mysql
-  - name: mysql-client
-    image: mysql:8.0
-    command: ["/bin/sh"]
-    args: ["-c", "while true; do sleep 10;done"]
