@@ -21,7 +21,10 @@ spec:
       - name: MYSQL_DATABASE
         value: testdb
       - name: MYSQL_USER
-        value: 1234
+        valueFrom: 
+          secretKeyRef:
+            name: mysql-secret
+            key: mysql-user
       - name: MYSQL_PASSWORD
         value: password
     ports:
