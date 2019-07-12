@@ -20,16 +20,6 @@ spec:
       value: yes
     - name: MYSQL_DATABASE
       value: testdb
-    - name: MYSQL_USER
-      valueFrom:
-        secretKeyRef:
-          name: mysql-secret
-          key: mysql-user
-    - name: MYSQL_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: mysql-secret
-          key: mysql-passwd
     ports:
     - containerPort: 3306
       name: mysql
