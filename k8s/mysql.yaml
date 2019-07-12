@@ -17,9 +17,13 @@ spec:
     image: mysql:8.0
     env:
       - name: MYSQL_RANDOM_ROOT_PASSWORD
-        value: "yes"
+        value: yes
       - name: MYSQL_DATABASE
-        value: "testdb"
+        value: testdb
+      - name: MYSQL_USER
+        value: 1234
+      - name: MYSQL_PASSWORD
+        value: password
     ports:
     - containerPort: 3306
       name: mysql
