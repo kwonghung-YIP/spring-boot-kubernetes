@@ -15,4 +15,4 @@ spec:
   - name: mysql-client
     image: mysql:8.0
     command: ["/bin/sh"]
-    args: ["-c","while true; sleep 10;done"]
+    args: ["-c","while true; do sleep 10;done"]
