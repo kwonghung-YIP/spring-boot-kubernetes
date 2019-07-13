@@ -1,1 +1,22 @@
-
+apiVersion: v1
+kind: Pod
+metadata:
+  name: springboot-pod
+spec:
+  containers:
+  - name: apringboot-app
+    image: kwonghung/spring-boot-docker-secret:latest
+    env:
+      - name: SPRING_PROFILES_ACTIVE
+        value: k8s
+    volumeMounts:
+    - name: mysql-pw
+      mountPath: "/run/secrets/mysql-passwd"
+      readOnly: true
+    ports:
+    - containerPort: 8080
+      name: http
+  volumes:
+  - name: mysql-pw
+    secret:
+      secretName: mysql-secret
