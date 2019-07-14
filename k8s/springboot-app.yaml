@@ -4,8 +4,9 @@ metadata:
   name: springboot-pod
 spec:
   containers:
-  - name: apringboot-app
-    image: kwonghung/spring-boot-docker-secret:latest
+  - name: springboot-app
+    image: nginx
+    #image: kwonghung/spring-boot-docker-secret:latest
     env:
       - name: SPRING_PROFILES_ACTIVE
         value: k8s
