@@ -20,4 +20,17 @@ spec:
   volumes:
   - name: mysql-pw
     secret:
-      secretName: mysql-secret
+      secretName: mysql-secret1
+---
+apiVersion: v1
+kind: Secret
+metadata: 
+  name: mysql-secret1
+  labels:
+    app: mysql
+type: Opaque
+data:
+  mysql-passwd: LW0gcGFzc3cwcmQK
+stringData:
+  mysql-user: testuser
+  #mysql-passwd: passw0rd
