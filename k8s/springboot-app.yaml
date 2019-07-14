@@ -30,7 +30,7 @@ metadata:
     app: mysql
 type: Opaque
 data:
-  mysql-passwd: LW0gcGFzc3cwcmQK
+  mysql-passwd: cGFzc3cwcmQ=
 stringData:
   mysql-user: testuser
   #mysql-passwd: passw0rd
