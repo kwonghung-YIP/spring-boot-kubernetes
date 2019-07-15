@@ -5,14 +5,14 @@ metadata:
 spec:
   containers:
   - name: springboot-app
-    image: nginx
-    #image: kwonghung/spring-boot-docker-secret:latest
+    #image: nginx
+    image: kwonghung/spring-boot-docker-secret:latest
     env:
       - name: SPRING_PROFILES_ACTIVE
         value: k8s
     volumeMounts:
     - name: mysql-pw
-      mountPath: "/run/secrets/mysql-passwd"
+      mountPath: "/run/secrets/mysql-secret"
       readOnly: true
     ports:
     - containerPort: 8080
@@ -20,17 +20,17 @@ spec:
   volumes:
   - name: mysql-pw
     secret:
-      secretName: mysql-secret1
----
-apiVersion: v1
-kind: Secret
-metadata: 
-  name: mysql-secret1
-  labels:
-    app: mysql
-type: Opaque
-data:
-  mysql-passwd: cGFzc3cwcmQ=
-stringData:
-  mysql-user: testuser
-  #mysql-passwd: passw0rd
+      secretName: mysql-secret
+#---
+#apiVersion: v1
+#kind: Secret
+#metadata: 
+#  name: mysql-secret1
+#  labels:
+#    app: mysql
+#type: Opaque
+#data:
+#  mysql-passwd: cGFzc3cwcmQ=
+#stringData:
+#  mysql-user: testuser
+
