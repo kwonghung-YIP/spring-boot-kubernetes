@@ -4,9 +4,9 @@ metadata:
   name: springboot-svc
 spec:
   ports:
-  - port:8080
+  - port: 8080
     targetPort: 8080
-  selector
+  selector:
     pod-name: abc
 ---
 apiVersion: apps/v1
