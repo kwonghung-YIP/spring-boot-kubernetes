@@ -4,7 +4,14 @@ metadata:
   name: springboot-deployment
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      pod-name: abc
   template:
+    metadata:
+      name: springboot-pod
+      labels:
+        pod-name: abc
     spec:
       containers:
       - name: springboot-app
