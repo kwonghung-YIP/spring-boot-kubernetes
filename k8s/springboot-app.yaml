@@ -41,9 +41,9 @@ spec:
     spec:
       containers:
       - name: springboot-app
-        image: kwonghung/spring-boot-docker-secret:latest
+        image: kwonghung/spring-boot-k8s-secret:latest
         ports:
         - containerPort: 8080
         env:
         - name: SPRING_PROFILES_ACTIVE
-          value: k8s
+          value: default
