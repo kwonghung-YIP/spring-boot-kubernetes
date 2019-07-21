@@ -42,6 +42,7 @@ spec:
       containers:
       - name: springboot-app
         image: kwonghung/spring-boot-k8s-secret:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
